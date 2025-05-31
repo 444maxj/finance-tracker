@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}</h2>
+
+
+<h4>Transactions</h4>
+<ul class="list-group mb-4">
+    {% for transaction in transactions %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            {{ transaction.date }} - {{ transaction.category }}: ${{ transaction.amount }}
+            <br>
+            <small class="text-muted">{{ transaction.description|default:"No description" }}</small>
+        </div>
+        <div>
+            <a href="{% url 'edit_transaction' transaction.id %}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="{% url 'delete_transaction' transaction.id %}" class="btn btn-sm btn-danger">Delete</a>
+        </div>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No transactions yet.</li>
+    {% endfor %}
+</ul>
+
+
+<h4>Savings Goals</h4>
+<ul class="list-group mb-4">
+    {% for goal in goals %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            {{ goal.goal_name }}<br>
+            <small>${{ goal.saved_amount }} / ${{ goal.target_amount }}</small>
+        </div>
+        <div>
+            <a href="{% url 'edit_goal' goal.id %}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="{% url 'delete_goal' goal.id %}" class="btn btn-sm btn-danger">Delete</a>
+        </div>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No savings goals set.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

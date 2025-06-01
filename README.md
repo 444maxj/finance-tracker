@@ -6,9 +6,9 @@
 
 ## 📸 Aperçu
 
-<img src="screenshots/dashboard.png" alt="Dashboard" width="600">
-<img src="screenshots/add_transaction.png" alt="Ajouter une transaction" width="600">
-<img src="screenshots/edit_goal.png" alt="Modifier un objectif" width="600">
+<img src="screenshots/dashboard.PNG" alt="Dashboard" width="600">
+<img src="screenshots/add_transaction.PNG" alt="Ajouter une transaction" width="600">
+<img src="screenshots/edit_goal.PNG" alt="Modifier un objectif" width="600">
 
 ---
 
